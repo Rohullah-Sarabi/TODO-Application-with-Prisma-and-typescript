@@ -29,3 +29,12 @@ export async function updateTodo(id:string,isComplated:boolean) {
         return{error}
     }
 }
+
+export async function DeleteTodo (id:string) {
+    try {
+        const todo = await prisma.todo.delete({where:{id}})
+        return {todo}
+    } catch (error) {
+        return {error}
+    }
+}
